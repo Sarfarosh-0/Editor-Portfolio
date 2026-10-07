@@ -15,12 +15,13 @@ export default function Reels() {
 
   return (
     <section className="reels" aria-label={projects.reelsTitle}>
-      <Reveal>
+      <Reveal y={20} once={false}>
         <h2 className="reels-title">{projects.reelsTitle}</h2>
       </Reveal>
 
-      {/* Track: render list TWICE for seamless marquee loop */}
-      <div className="reels-track">
+      {/* Track: smoothly animates into view on scroll */}
+      <Reveal y={30} delay={0.1} once={false} style={{ width: "100%", overflow: "hidden" }}>
+        <div className="reels-track">
         {[...projects.reels, ...projects.reels].map((reel, i) => (
           <div
             key={`${reel.src}-${i}`}
@@ -52,7 +53,8 @@ export default function Reels() {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

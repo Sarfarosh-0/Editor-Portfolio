@@ -1,6 +1,7 @@
 // components/Footer.tsx
 // Footer: tagline + copyright line. Year is dynamic.
 
+import Reveal from "./Reveal";
 import { content } from "@/content/content";
 
 export default function Footer() {
@@ -9,10 +10,12 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <p className="footer-tagline">{footer.tagline}</p>
-      <p className="footer-copy">
-        <span suppressHydrationWarning>{year}</span> {site.ownerName}. {footer.signOff}
-      </p>
+      <Reveal y={16} once={false}>
+        <p className="footer-tagline">{footer.tagline}</p>
+        <p className="footer-copy">
+          <span suppressHydrationWarning>{year}</span> {site.ownerName}. {footer.signOff}
+        </p>
+      </Reveal>
     </footer>
   );
 }

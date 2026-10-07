@@ -44,7 +44,7 @@ export default function Home() {
         <section id="projects" className="projects">
           <Reels />
           <GalleryTabs />
-          <Videography />
+          {/* <Videography /> */}
         </section>
 
         {/* Contact (#contact) */}

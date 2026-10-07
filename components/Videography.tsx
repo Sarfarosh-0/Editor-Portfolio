@@ -19,7 +19,7 @@ export default function Videography() {
 
   return (
     <section className="videography" aria-label={videographyTitle}>
-      <Reveal>
+      <Reveal y={20} once={false}>
         <h2 className="videography-title">{videographyTitle}</h2>
       </Reveal>
 
@@ -28,7 +28,7 @@ export default function Videography() {
           const isValidYoutubeId = YOUTUBE_ID_REGEX.test(film.youtubeId);
 
           return (
-            <Reveal key={`${film.youtubeId}-${i}`} delay={i * 0.1} className="videography-item">
+            <Reveal key={`${film.youtubeId}-${i}`} y={28} delay={i * 0.08} once={false} className="videography-item">
               <article className="video-card">
                 <div className="video-frame">
                   {isValidYoutubeId ? (

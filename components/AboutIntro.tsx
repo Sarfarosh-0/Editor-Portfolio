@@ -24,13 +24,17 @@ export default function AboutIntro() {
       </div>
 
       {/* Content over overlay (z-index 2) */}
-      <Reveal style={{ position: "relative", zIndex: 2, width: "100%", paddingTop: "5rem", paddingBottom: "5rem" }}>
-        <h2 className="about-title">
-          {about.titleLead}&nbsp;
-          <span>{about.titleAccent}</span>
-        </h2>
-        <p className="about-intro">{about.intro}</p>
-      </Reveal>
+      <div style={{ position: "relative", zIndex: 2, width: "100%", paddingTop: "5rem", paddingBottom: "5rem" }}>
+        <Reveal y={24} once={false}>
+          <h2 className="about-title">
+            {about.titleLead}&nbsp;
+            <span>{about.titleAccent}</span>
+          </h2>
+        </Reveal>
+        <Reveal y={20} delay={0.12} once={false}>
+          <p className="about-intro">{about.intro}</p>
+        </Reveal>
+      </div>
     </section>
   );
 }

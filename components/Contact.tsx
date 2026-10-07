@@ -68,7 +68,7 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       {/* Heading block — errata: reveal from opacity:0, translateY(20px) */}
-      <Reveal y={20} className="contact-heading">
+      <Reveal y={20} once={false} className="contact-heading">
         <h2>
           {contact.headingLead} <span className="accent">{contact.headingAccent}</span>
         </h2>
@@ -76,7 +76,7 @@ export default function Contact() {
       </Reveal>
 
       {/* Form — errata: reveal from opacity:0, translateY(30px) */}
-      <Reveal y={30} style={{ width: "100%", maxWidth: "680px" }}>
+      <Reveal y={30} once={false} style={{ width: "100%", maxWidth: "680px" }}>
         <motion.form
           className="contact-form"
           onSubmit={handleSubmit}

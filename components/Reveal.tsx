@@ -10,21 +10,28 @@ interface RevealProps extends MotionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  duration?: number;
   /** translateX offset (for about image/text slide) */
   x?: number;
   /** translateY offset */
   y?: number;
   /** initial scale */
   scale?: number;
+  /** Whether animation triggers once or every time it enters the viewport */
+  once?: boolean;
+  amount?: number | "some" | "all";
 }
 
 export default function Reveal({
   children,
   className,
   delay = 0,
+  duration = 0.6,
   x = 0,
   y = 0,
   scale = 1,
+  once = false,
+  amount = 0.15,
   ...rest
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -42,9 +49,9 @@ export default function Reveal({
       className={className}
       initial={{ opacity: 0, x, y, scale }}
       whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once, amount }}
       transition={{
-        duration: 0.6,
+        duration,
         ease: [0.22, 1, 0.36, 1],
         delay,
       }}

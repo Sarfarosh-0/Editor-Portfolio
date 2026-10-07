@@ -78,7 +78,7 @@ export const content = {
       "I'm a driven and passionate creative with a keen eye for detail and a passion for visual storytelling. With 3 years of experience in photography, cinematography, and graphic design, I've been able to work on a diverse variety of projects that not only showcase my abilities but also my dedication to creating meaningful and impactful work. What gets me going is the power of storytelling that resonates. I thrive in a space where I can work with others, learn, and build something greater, always striving to produce work that not only looks good but also feels thoughtful. Software Skills in",
     skills: [
       { name: "capcut", logo: "/tools-icons/capcut.jpg", level: 5 },
-      { name: "picsart", logo: "/tools-icons/canva.jpg", level: 4 },
+      { name: "picsart", logo: "/tools-icons/picsart.jpg", level: 4 },
       { name: "Davinchi Resolve", logo: "/tools-icons/DaVinci_Resolve_Studio.png", level: 3 },
       { name: "Canva", logo: "/tools-icons/canva.jpg", level: 5 },
       { name: "Gemmni", logo: "/tools-icons/gemmni.jpg", level: 4 },

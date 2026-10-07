@@ -9,6 +9,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { content } from "@/content/content";
 
+import Reveal from "./Reveal";
+
 export default function GalleryTabs() {
   const { galleryCategories } = content.projects;
   const [activeId, setActiveId] = useState(galleryCategories?.[0]?.id ?? "");
@@ -43,24 +45,26 @@ export default function GalleryTabs() {
 
   return (
     <div style={{ marginTop: "3rem" }}>
-      {/* Tabs pill */}
-      <div className="tabs" role="tablist" aria-label="Gallery categories">
-        {galleryCategories.map((cat, idx) => (
-          <button
-            key={cat.id}
-            id={`tab-${cat.id}`}
-            role="tab"
-            aria-selected={cat.id === (activeCategory?.id ?? activeId)}
-            tabIndex={cat.id === (activeCategory?.id ?? activeId) ? 0 : -1}
-            aria-controls="tabpanel-gallery"
-            className={cat.id === (activeCategory?.id ?? activeId) ? "tab--active" : "tab"}
-            onClick={() => setActiveId(cat.id)}
-            onKeyDown={(e) => handleKeyDown(e, idx)}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
+      {/* Tabs pill with scroll-triggered entrance */}
+      <Reveal y={20} once={false}>
+        <div className="tabs" role="tablist" aria-label="Gallery categories">
+          {galleryCategories.map((cat, idx) => (
+            <button
+              key={cat.id}
+              id={`tab-${cat.id}`}
+              role="tab"
+              aria-selected={cat.id === (activeCategory?.id ?? activeId)}
+              tabIndex={cat.id === (activeCategory?.id ?? activeId) ? 0 : -1}
+              aria-controls="tabpanel-gallery"
+              className={cat.id === (activeCategory?.id ?? activeId) ? "tab--active" : "tab"}
+              onClick={() => setActiveId(cat.id)}
+              onKeyDown={(e) => handleKeyDown(e, idx)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </Reveal>
 
       {/* Gallery grid — fades between tabs */}
       <div
@@ -80,15 +84,16 @@ export default function GalleryTabs() {
             >
               {activeCategory.images.map((img, i) => (
                 <motion.div
-                  key={img.src}
+                  key={`${activeId}-${img.src}-${i}`}
                   className="gallery-tile"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 22, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
-                    duration: 0.6,
+                    duration: 0.5,
                     ease: [0.22, 1, 0.36, 1],
-                    delay: i * 0.08,
+                    delay: (i % 6) * 0.08,
                   }}
+                  whileHover={{ y: -6, scale: 1.02 }}
                 >
                   <Image
                     src={img.src}
