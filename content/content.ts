@@ -255,8 +255,8 @@ export const content = {
   },
 
   footer: {
-    tagline: "PLACEHOLDER: short footer tagline.",
-    signOff: "PLACEHOLDER sign-off line.", // rendered as "<year> <ownerName>. <signOff>"
+    tagline: "Shot on instinct, cut on rhythm, color graded for chills. Your story, but make it cinematic.",
+    signOff: "2026 Fahyan. Frame it real. Keep it raw.",
   },
 };
 
