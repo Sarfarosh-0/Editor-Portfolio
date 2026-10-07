@@ -7,11 +7,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { content } from "@/content/content";
 
-// Inline SVGs for email and CV icons (stroke white per PRD §4.2)
-
-// Update your Social / Hero type definition:
-
-
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -32,6 +27,7 @@ const EmailIcon = () => (
     <polyline points="2,4 12,13 22,4" />
   </svg>
 );
+
 const CvIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -92,7 +88,6 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: delays[2] }}
         >
           <span className="first">{hero.firstName}&nbsp;</span>
-          {/* TODO(confirm): blinking caret follows last name; full name rendered immediately */}
           <span className="last">{hero.lastName}</span>
           <span className="hero-caret" aria-hidden="true" />
         </motion.h1>
@@ -106,7 +101,6 @@ export default function Hero() {
         >
           {hero.roleLine}
           <br />
-          {/* errata: line 2 in cyan at 0.9em */}
           <span className="tagline-line2">{hero.locationLine}</span>
         </motion.p>
 
@@ -121,6 +115,8 @@ export default function Hero() {
               {hero.socials.map(({ label, href, icon, external }) => {
                 const isJsScheme = href.trim().toLowerCase().startsWith("javascript:");
                 const safeHref = isJsScheme ? "#" : href;
+                // Cast icon type to string | { src: string } to allow "github"
+                const iconName = icon as string | { src: string };
 
                 return (
                   <a
@@ -130,19 +126,15 @@ export default function Hero() {
                     aria-label={label}
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   >
-                    {/* Replaced Image tag with the new Instagram component */}
-                    {icon === "instagram" && <InstagramIcon />}
-
-                    {/* Added new Github component */}
-                    {icon === "github" && <GithubIcon />}
-
-                    {icon === "facebook" && (
+                    {iconName === "instagram" && <InstagramIcon />}
+                    {iconName === "github" && <GithubIcon />}
+                    {iconName === "facebook" && (
                       <Image src="/icons/facebook.svg" alt="" width={30} height={30} aria-hidden="true" />
                     )}
-                    {icon === "email" && <EmailIcon />}
-                    {icon === "cv" && <CvIcon />}
-                    {typeof icon === "object" && "src" in icon && (
-                      <Image src={icon.src} alt="" width={30} height={30} aria-hidden="true" />
+                    {iconName === "email" && <EmailIcon />}
+                    {iconName === "cv" && <CvIcon />}
+                    {typeof iconName === "object" && "src" in iconName && (
+                      <Image src={iconName.src} alt="" width={30} height={30} aria-hidden="true" />
                     )}
                   </a>
                 );
