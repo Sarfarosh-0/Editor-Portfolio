@@ -98,24 +98,19 @@ export const content = {
 
     galleryCategories: [
       {
-        id: "wildlife",
-        label: "Wildlife",
-        images: placeholderImages("wildlife", 6),
+        id: "posters",
+        label: "Posters",
+        images: placeholderImages("posters", 6),
       },
       {
-        id: "portraits",
-        label: "Portraits",
-        images: placeholderImages("portraits", 6),
+        id: "nature",
+        label: "Nature",
+        images: placeholderImages("nature", 6),
       },
       {
-        id: "fashion",
-        label: "Fashion",
-        images: placeholderImages("fashion", 6),
-      },
-      {
-        id: "concerts",
-        label: "Concerts",
-        images: placeholderImages("concerts", 6),
+        id: "movies",
+        label: "Movies",
+        images: placeholderImages("movies", 6),
       },
     ] as GalleryCategory[],
 
