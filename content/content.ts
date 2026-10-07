@@ -1,17 +1,11 @@
-// content/content.ts
-// =====================================================================
-// EDIT THIS FILE ONLY. Every value marked PLACEHOLDER is sample data.
-// Layout, styles and components must NOT need changes to swap content.
-// =====================================================================
-
 export type Social = {
-  label: string; // accessible name, e.g. "Instagram"
-  href: string; // https:// | mailto: | path to CV pdf
-  icon: "instagram" | "github" | "email" | "cv" | { src: string }; // { src } = custom svg/img url
-  external?: boolean; // opens in new tab (rel="noopener noreferrer")
+  label: string; 
+  href: string;
+  icon: "instagram" | "github" | "email" | "cv" | { src: string }; 
+  external?: boolean;
 };
 
-export type Skill = { name: string; logo: string; level: 1 | 2 | 3 | 4 | 5 }; // level -> filled dots (see section 12)
+export type Skill = { name: string; logo: string; level: 1 | 2 | 3 | 4 | 5 }; 
 export type Reel = { src: string; poster?: string; label: string };
 export type GalleryImage = { src: string; alt: string };
 export type GalleryCategory = {
@@ -30,17 +24,17 @@ export type InstagramPage = {
 
 export const content = {
   site: {
-    ownerName: "PLACEHOLDER Full Name",
-    ownerShort: "PLACEHOLDER", // used in <meta apple-mobile-web-app-title>
+    ownerName: "Fahyan",
+    ownerShort: "Fahyan",
     url: "https://PLACEHOLDER-DOMAIN.example",
     locale: "en_IN",
     themeColor: "#000000",
     twitterHandle: "@PLACEHOLDER",
-    title: "PLACEHOLDER Name | Professional Photographer & Cinematographer",
-    description: "PLACEHOLDER: one-sentence site description for SEO.",
-    keywords: ["PLACEHOLDER keyword 1", "PLACEHOLDER keyword 2"],
-    ogImage: "/placeholders/og-image.svg", // 1200x630
-    ogImageAlt: "PLACEHOLDER alt text",
+    title: "Fahyan | Professional Editor & Photographer",
+    description: "Editing, photography, and videography services for creative projects. Let's collaborate to bring your vision to life.",
+    keywords: ["Editor", "Photographer", "Videographer", "Portfolio"],
+    ogImage: "/og-image.png",
+    ogImageAlt: "Editing, photography, and videography services for creative projects. Let's collaborate to bring your vision to life.",
   },
 
   nav: [
@@ -53,8 +47,8 @@ export const content = {
     photo: { src: "/Fahyan.jpeg", alt: "PLACEHOLDER profile photo" },
     showAvailability: true,
     availabilityText: "available for work",
-    firstName: "FAHYAN", // Impact, white
-    lastName: "🦅", // Instrument Serif italic, shimmer
+    firstName: "FAHYAN", 
+    lastName: "🦅",
     roleLine: "Photographer - Videographer - Editor",
     locationLine: "Based from India",
     socials: [
@@ -71,14 +65,14 @@ export const content = {
         external: true,
       },
       { label: "Email", href: "mailto:fahyan399@gmail.com", icon: "email" },
-      { label: "View CV", href: "#", icon: "cv" }, // PLACEHOLDER: link to a PDF
+      { label: "View CV", href: "#", icon: "cv" },
     ] as Social[],
   },
 
   about: {
     titleLead: "More about",
     titleAccent: "myself",
-    backgroundGif: "/placeholders/about-bg.gif", // animated background (full-bleed)
+    backgroundGif: "/placeholders/about-bg.gif",
     intro:
       "Hi, I'm Fahyan, a passionate photographer, videographer, and editor with a mission to bring creative ideas to life through exceptional designs and content.",
     image: { src: "/about.jpg", alt: "about photo" },
@@ -236,7 +230,7 @@ export const content = {
   contact: {
     headingLead: "Get in",
     headingAccent: "touch",
-    subtext: "PLACEHOLDER: short invitation to get in touch.",
+    subtext: "Available for Editing, photography, videography,and creative collaboration. Let's make something great together.",
     submitLabel: "Send Message",
     fields: {
       name: { label: "Name", placeholder: "Your name" },
