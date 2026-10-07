@@ -72,7 +72,7 @@ export const content = {
   about: {
     titleLead: "More about",
     titleAccent: "myself",
-    backgroundGif: "/placeholders/about-bg.gif",
+    backgroundGif: "/about-bg.gif",
     intro:
       "Hi, I'm Fahyan, a passionate photographer, videographer, and editor with a mission to bring creative ideas to life through exceptional designs and content.",
     image: { src: "/about.jpg", alt: "about photo" },
@@ -197,32 +197,29 @@ export const content = {
 
     instagramPagesTitle: "Instagram Pages Managed",
     instagramPages: [
-      // ── Add / edit your Instagram pages here ──────────────────────────────
-      // image: place the file in public/assets/ig/ and set the path below.
-      // ─────────────────────────────────────────────────────────────────────
       {
-        handle: "@PLACEHOLDER_handle",
-        href: "https://www.instagram.com/PLACEHOLDER",
-        image: "/assets/ig/page-1.jpg", // place your screenshot/logo here
-        role: "Content Creator",
-        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
-        followers: "PLACEHOLDER k",
-      },
-      {
-        handle: "@PLACEHOLDER_handle",
-        href: "https://www.instagram.com/PLACEHOLDER",
-        image: "/assets/ig/page-2.jpg",
+        handle: "@wassup__ak",
+        href: "https://www.instagram.com/wassup__ak",
+        image: "/assets/instagram-pages/page-1.jpg",
         role: "Social Media Manager",
-        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
-        followers: "PLACEHOLDER k",
+        description: "Photography and videography content creation, social media management, and campaign execution for the account.",
+        followers: "1500+",
       },
       {
-        handle: "@PLACEHOLDER_handle",
-        href: "https://www.instagram.com/PLACEHOLDER",
-        image: "/assets/ig/page-3.jpg",
-        role: "Photographer & Editor",
-        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
-        followers: "PLACEHOLDER k",
+        handle: "@ujjwal_singhlifts",
+        href: "https://www.instagram.com/ujjwal_singhlifts",
+        image: "/assets/instagram-pages/page-2.jpg",
+        role: "Video Editor",
+        description: "Editing and post-production for video content, ensuring high-quality visuals and engaging storytelling for the account.",
+        followers: "1400+",
+      },
+      {
+        handle: "@limxra",
+        href: "https://www.instagram.com/limxra",
+        image: "/assets/instagram-pages/page-3.jpg",
+        role: "Social Media Manager",
+        description: "Video editing, content creation, and social media strategy implementation to enhance the account's online presence and engagement.",
+        followers: "60+",
       },
     ] as InstagramPage[],
   },
