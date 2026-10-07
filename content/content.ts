@@ -73,32 +73,30 @@ export const content = {
     titleAccent: "myself",
     backgroundGif: "/placeholders/about-bg.gif", // animated background (full-bleed)
     intro: "Hi, I'm Fahyan, a passionate photographer, videographer, and editor with a mission to bring creative ideas to life through exceptional designs and content.",
-    image: { src: "/placeholders/about.svg", alt: "PLACEHOLDER about photo" },
+    image: { src: "/about.jpg", alt: "about photo" },
     paragraph:
-      "PLACEHOLDER: about paragraph. End with the lead-in to the skills list. Software Skills in",
+      "I'm a driven and passionate creative with a keen eye for detail and a passion for visual storytelling. With 3 years of experience in photography, cinematography, and graphic design, I've been able to work on a diverse variety of projects that not only showcase my abilities but also my dedication to creating meaningful and impactful work. What gets me going is the power of storytelling that resonates. I thrive in a space where I can work with others, learn, and build something greater, always striving to produce work that not only looks good but also feels thoughtful. Software Skills in",
     skills: [
-      { name: "Photoshop", logo: "/placeholders/skill-1.svg", level: 5 },
-      { name: "Premiere Pro", logo: "/placeholders/skill-2.svg", level: 5 },
-      { name: "After Effects", logo: "/placeholders/skill-3.svg", level: 5 },
-      { name: "Illustrator", logo: "/placeholders/skill-4.svg", level: 5 },
-      { name: "Lightroom", logo: "/placeholders/skill-5.svg", level: 5 },
+      { name: "capcut", logo: "/tools-icons/capcut.jpg", level: 5 },
+      { name: "picsart", logo: "/tools-icons/canva.jpg", level: 4 },
+      { name: "Davinchi Resolve", logo: "/tools-icons/DaVinci_Resolve_Studio.png", level: 3 },
+      { name: "Canva", logo: "/tools-icons/canva.jpg", level: 5 },
+      { name: "Gemmni", logo: "/tools-icons/gemmni.jpg", level: 4 },
     ] as Skill[],
   },
 
   projects: {
     reelsTitle: "Reels",
     reels: [
-      // reference has 6 unique reels
-      { src: "/assets/reels/reel-1.mp4", label: "PLACEHOLDER reel 1" },
-      { src: "/assets/reels/reel-2.mp4", label: "PLACEHOLDER reel 2" },
-      { src: "/assets/reels/reel-3.mp4", label: "PLACEHOLDER reel 3" },
-      { src: "/assets/reels/reel-4.mp4", label: "PLACEHOLDER reel 4" },
-      { src: "/assets/reels/reel-5.mp4", label: "PLACEHOLDER reel 5" },
-      { src: "/assets/reels/reel-6.mp4", label: "PLACEHOLDER reel 6" },
+      { src: "/assets/reels/reel-1.mp4", label: "reel 1" },
+      { src: "/assets/reels/reel-2.mp4", label: "reel 2" },
+      { src: "/assets/reels/reel-3.mp4", label: "reel 3" },
+      { src: "/assets/reels/reel-4.mp4", label: "reel 4" },
+      { src: "/assets/reels/reel-5.mp4", label: "reel 5" },
+      { src: "/assets/reels/reel-6.mp4", label: "reel 6" },
     ] as Reel[],
 
     galleryCategories: [
-      // first category is the default tab
       {
         id: "wildlife",
         label: "Wildlife",
