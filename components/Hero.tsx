@@ -128,9 +128,9 @@ export default function Hero() {
                   >
                     {iconName === "instagram" && <InstagramIcon />}
                     {iconName === "github" && <GithubIcon />}
-                    {iconName === "facebook" && (
+                    {/* {iconName === "facebook" && (
                       <Image src="/icons/facebook.svg" alt="" width={30} height={30} aria-hidden="true" />
-                    )}
+                    )} */}
                     {iconName === "email" && <EmailIcon />}
                     {iconName === "cv" && <CvIcon />}
                     {typeof iconName === "object" && "src" in iconName && (

@@ -53,17 +53,17 @@ export const content = {
     socials: [
       {
         label: "Instagram",
-        href: "https://instagram.com/your-username",
+        href: "https://www.instagram.com/the_fahyan",
         icon: "instagram",
         external: true,
       },
       {
         label: "GitHub",
-        href: "https://github.com/your-username",
+        href: "https://github.com/9984-fahyan",
         icon: "github",
         external: true,
       },
-      { label: "Email", href: "mailto:placeholder@example.com", icon: "email" },
+      { label: "Email", href: "mailto:fahyan399@gmail.com", icon: "email" },
       { label: "View CV", href: "#", icon: "cv" }, // PLACEHOLDER: link to a PDF
     ] as Social[],
   },
@@ -72,7 +72,7 @@ export const content = {
     titleLead: "More about",
     titleAccent: "myself",
     backgroundGif: "/placeholders/about-bg.gif", // animated background (full-bleed)
-    intro: "PLACEHOLDER: one-sentence introduction.",
+    intro: "Hi, I'm Fahyan, a passionate photographer, videographer, and editor with a mission to bring creative ideas to life through exceptional designs and content.",
     image: { src: "/placeholders/about.svg", alt: "PLACEHOLDER about photo" },
     paragraph:
       "PLACEHOLDER: about paragraph. End with the lead-in to the skills list. Software Skills in",
