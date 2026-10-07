@@ -43,11 +43,11 @@ export const content = {
   ],
 
   hero: {
-    photo: { src: "/Hiromi-Higuruma.jpg", alt: "PLACEHOLDER profile photo" },
+    photo: { src: "/Fahyan.jpeg", alt: "PLACEHOLDER profile photo" },
     showAvailability: true,
     availabilityText: "available for work",
-    firstName: "Fahyan", // Impact, white
-    lastName: "", // Instrument Serif italic, shimmer
+    firstName: "FAHYAN", // Impact, white
+    lastName: "🦅", // Instrument Serif italic, shimmer
     roleLine: "Photographer - Videographer - Editor",
     locationLine: "Based from India",
     socials: [
