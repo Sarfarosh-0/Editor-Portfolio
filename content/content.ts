@@ -14,12 +14,12 @@ export type GalleryCategory = {
   images: GalleryImage[];
 };
 export type InstagramPage = {
-  handle: string;       // e.g. "@the_fahyan" — shown as page name
-  href: string;         // full Instagram URL, e.g. "https://www.instagram.com/the_fahyan"
-  image: string;        // path to profile screenshot, e.g. "/assets/ig/the_fahyan.jpg"
-  role: string;         // short badge, e.g. "Content Creator" | "Social Media Manager"
-  description: string;  // 1–3 sentences about what you did/managed
-  followers?: string;   // optional display stat, e.g. "12k followers"
+  handle: string;     
+  href: string;       
+  image: string;       
+  role: string;      
+  description: string;
+  followers?: string;
 };
 
 export const content = {
@@ -218,7 +218,7 @@ export const content = {
         href: "https://www.instagram.com/limxra",
         image: "/assets/instagram-pages/page-3.jpg",
         role: "Social Media Manager",
-        description: "Video editing, content creation, and social media strategy implementation to enhance the account's online presence and engagement.",
+        description: "Video editing, content creation, and social media strategy implementation to enhance the account's online engagement.",
         followers: "60+",
       },
     ] as InstagramPage[],
@@ -242,7 +242,7 @@ export const content = {
       },
     },
     recipientEmail: "placeholder@example.com",
-    // Submission handling: see section 12 (default is a stubbed handler). // TODO(confirm):
+    // TODO(confirm):
   },
 
   footer: {

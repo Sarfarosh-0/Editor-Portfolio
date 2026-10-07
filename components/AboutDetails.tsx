@@ -1,7 +1,4 @@
 "use client";
-// components/AboutDetails.tsx
-// About details grid: left = photo (slides from left), right = paragraph + skills grid (slides from right).
-// Skill dots fill per level, staggered reveal. TODO(confirm): dots filled cyan per level.
 
 import Image from "next/image";
 import { motion } from "framer-motion";
