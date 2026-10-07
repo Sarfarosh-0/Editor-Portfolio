@@ -19,7 +19,14 @@ export type GalleryCategory = {
   label: string;
   images: GalleryImage[];
 };
-export type Film = { title: string; youtubeId: string; description: string };
+export type InstagramPage = {
+  handle: string;       // e.g. "@the_fahyan" — shown as page name
+  href: string;         // full Instagram URL, e.g. "https://www.instagram.com/the_fahyan"
+  image: string;        // path to profile screenshot, e.g. "/assets/ig/the_fahyan.jpg"
+  role: string;         // short badge, e.g. "Content Creator" | "Social Media Manager"
+  description: string;  // 1–3 sentences about what you did/managed
+  followers?: string;   // optional display stat, e.g. "12k followers"
+};
 
 export const content = {
   site: {
@@ -194,30 +201,36 @@ export const content = {
       },
     ] as GalleryCategory[],
 
-    videographyTitle: "Featured Videography",
-    films: [
-      // reference has 4 films
+    instagramPagesTitle: "Instagram Pages Managed",
+    instagramPages: [
+      // ── Add / edit your Instagram pages here ──────────────────────────────
+      // image: place the file in public/assets/ig/ and set the path below.
+      // ─────────────────────────────────────────────────────────────────────
       {
-        title: "PLACEHOLDER Film 1",
-        youtubeId: "PLACEHOLDER_ID",
-        description: "PLACEHOLDER description. Line breaks are preserved.",
+        handle: "@PLACEHOLDER_handle",
+        href: "https://www.instagram.com/PLACEHOLDER",
+        image: "/assets/ig/page-1.jpg", // place your screenshot/logo here
+        role: "Content Creator",
+        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
+        followers: "PLACEHOLDER k",
       },
       {
-        title: "PLACEHOLDER Film 2",
-        youtubeId: "PLACEHOLDER_ID",
-        description: "PLACEHOLDER description.",
+        handle: "@PLACEHOLDER_handle",
+        href: "https://www.instagram.com/PLACEHOLDER",
+        image: "/assets/ig/page-2.jpg",
+        role: "Social Media Manager",
+        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
+        followers: "PLACEHOLDER k",
       },
       {
-        title: "PLACEHOLDER Film 3",
-        youtubeId: "PLACEHOLDER_ID",
-        description: "PLACEHOLDER description.",
+        handle: "@PLACEHOLDER_handle",
+        href: "https://www.instagram.com/PLACEHOLDER",
+        image: "/assets/ig/page-3.jpg",
+        role: "Photographer & Editor",
+        description: "PLACEHOLDER – describe the account, what type of content you created, campaigns you ran, or the results you achieved.",
+        followers: "PLACEHOLDER k",
       },
-      {
-        title: "PLACEHOLDER Film 4",
-        youtubeId: "PLACEHOLDER_ID",
-        description: "PLACEHOLDER description.",
-      },
-    ] as Film[],
+    ] as InstagramPage[],
   },
 
   contact: {

@@ -15,7 +15,7 @@ const Reels = dynamic(() => import("@/components/Reels"), {
 const GalleryTabs = dynamic(() => import("@/components/GalleryTabs"), {
   loading: () => <div style={{ minHeight: "30vh" }} />,
 });
-const Videography = dynamic(() => import("@/components/Videography"), {
+const InstagramPages = dynamic(() => import("@/components/Videography"), {
   loading: () => <div style={{ minHeight: "30vh" }} />,
 });
 const Contact = dynamic(() => import("@/components/Contact"), {
@@ -40,11 +40,11 @@ export default function Home() {
         <AboutIntro />
         <AboutDetails />
 
-        {/* Projects (#projects): Reels + Gallery + Videography */}
+        {/* Projects (#projects): Reels + Gallery + Instagram Pages */}
         <section id="projects" className="projects">
           <Reels />
           <GalleryTabs />
-          {/* <Videography /> */}
+          <InstagramPages />
         </section>
 
         {/* Contact (#contact) */}

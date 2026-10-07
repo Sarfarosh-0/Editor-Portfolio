@@ -74,11 +74,11 @@ export const metadata: Metadata = {
 
 // JSON-LD graph — generated entirely from content.ts
 function buildJsonLd() {
-  const filmList = projects.films.map((film, i) => ({
+  const instagramList = projects.instagramPages.map((page, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    name: film.title,
-    url: `https://www.youtube.com/watch?v=${film.youtubeId}`,
+    name: page.handle,
+    url: page.href,
   }));
 
   return {
@@ -112,8 +112,8 @@ function buildJsonLd() {
       },
       {
         "@type": "ItemList",
-        name: "Featured Films",
-        itemListElement: filmList,
+        name: "Instagram Pages Managed",
+        itemListElement: instagramList,
       },
       {
         "@type": "FAQPage",
