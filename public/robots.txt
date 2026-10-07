@@ -1,0 +1,6 @@
+# public/robots.txt
+# B1.5 / B7.4: Block search engine crawlers while placeholder content remains.
+# Flip to "Allow: /" once real owner content is published.
+
+User-agent: *
+Disallow: /
