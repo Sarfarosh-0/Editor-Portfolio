@@ -116,12 +116,67 @@ export async function POST(req: NextRequest) {
 
     // 9. Recipient resolution (from env, with content fallback)
     // B2.17: Recipient address taken from server env/content, never from request body
-    const _recipient = process.env.CONTACT_RECIPIENT_EMAIL || content.contact.recipientEmail;
+    const recipient = process.env.CONTACT_RECIPIENT_EMAIL || content.contact.recipientEmail;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    // TODO(confirm): replace this stub with a real mail provider (Resend, SendGrid, etc.)
-    // B2.18 / B1.3: No PII logged in production logs
-    if (process.env.NODE_ENV === "development") {
-      console.info("[Contact Submission] Validated payload received (length:", trimmedMessage.length, ")");
+    // Helper: HTML-escape to prevent XSS (B2.12)
+    const escapeHtml = (str: string) =>
+      str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    // 10. Live email delivery via Resend API (B8.1)
+    if (resendApiKey) {
+      const emailRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Portfolio Contact <onboarding@resend.dev>",
+          to: [recipient],
+          reply_to: trimmedEmail,
+          subject: `[Portfolio Inquiry] ${trimmedSubject}`,
+          text: `Name: ${trimmedName}\nEmail: ${trimmedEmail}\nSubject: ${trimmedSubject}\n\nMessage:\n${trimmedMessage}`,
+          html: `
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #ffffff; border-radius: 12px; border: 1px solid #222;">
+              <h2 style="margin-top: 0; color: #42dcff; font-size: 1.3rem;">New Portfolio Inquiry</h2>
+              <div style="background: rgba(255, 255, 255, 0.04); padding: 16px; border-radius: 8px; margin: 16px 0; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <p style="margin: 6px 0;"><strong>Name:</strong> ${escapeHtml(trimmedName)}</p>
+                <p style="margin: 6px 0;"><strong>Email:</strong> <a href="mailto:${escapeHtml(trimmedEmail)}" style="color: #42dcff;">${escapeHtml(trimmedEmail)}</a></p>
+                <p style="margin: 6px 0;"><strong>Subject:</strong> ${escapeHtml(trimmedSubject)}</p>
+              </div>
+              <div style="margin-top: 16px;">
+                <p style="margin-bottom: 8px; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;"><strong>Message:</strong></p>
+                <div style="background: rgba(255, 255, 255, 0.02); padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6; border: 1px solid rgba(255, 255, 255, 0.06);">${escapeHtml(trimmedMessage)}</div>
+              </div>
+              <p style="margin-top: 24px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px;">
+                Sent from your portfolio contact form. Hit "Reply" to respond directly to ${escapeHtml(trimmedEmail)}.
+              </p>
+            </div>
+          `,
+        }),
+      });
+
+      if (!emailRes.ok) {
+        return NextResponse.json(
+          { error: "Failed to dispatch email. Please try again or reach out directly." },
+          { status: 502 }
+        );
+      }
+    } else {
+      // In dev or until RESEND_API_KEY is configured
+      if (process.env.NODE_ENV === "development") {
+        console.info(
+          "[Contact Submission] Received valid payload for",
+          recipient,
+          "(add RESEND_API_KEY to send live email)"
+        );
+      }
     }
 
     return NextResponse.json({ ok: true }, { status: 200 });
