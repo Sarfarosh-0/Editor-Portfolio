@@ -62,7 +62,8 @@ public/
 | Text opacities | `0.4 · 0.45 · 0.5 · 0.55 · 0.7 · 0.78 · 0.9 · 0.94` | Muted copy tiers |
 | Theme color | `#000000` | `<meta name="theme-color">` |
 
-The site is **dark only**. There is no light theme.
+The site is **dark only**. There is no light theme. 
+thank you
 
 ### Typography
 | Role | Family | Details |
