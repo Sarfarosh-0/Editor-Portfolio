@@ -17,6 +17,7 @@ interface RevealProps extends MotionProps {
   y?: number;
   /** initial scale */
   scale?: number;
+  /** Whether animation triggers once or every time it enters the viewport */
   once?: boolean;
   amount?: number | "some" | "all";
 }
