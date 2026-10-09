@@ -6,7 +6,6 @@
 # testing
 /coverage
 
-/public/assets/reels
 
 # next.js
 /.next/
