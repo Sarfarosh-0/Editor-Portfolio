@@ -1,18 +1,23 @@
-# PLACEHOLDER Name
+# Fahyan
 
-> Professional Photographer & Cinematographer
+> Professional Photographer & Video Editor
 
-## About
-PLACEHOLDER: one-sentence site description for SEO.
+## Summary
+Professional photographer and video editor specializing in visual storytelling, high-impact commercial imagery, and cinematic post-production across fashion, portraits, wildlife, and music events.
 
-## Services
-- Photography
-- Cinematography
-- Video Editing
+## Core Services
+- Photography: Commercial, lifestyle, portrait, fashion, and wildlife photo shoots.
+- Cinematography: Camera operation, event capture, short-film production, and short-form video creation.
+- Post-Production: High-end video editing, color grading, sound design, and motion assembly.
 
-## Portfolio
-- Wildlife Photography
-- Portrait Photography
-- Fashion Photography
-- Concert Photography
-- Featured Films & Short Reels
+## Key Portfolio Categories
+- Wildlife Photography: High-resolution wilderness, animal behavior, and nature documentary stills.
+- Portrait Photography: Studio headshots, editorial framing, and environmental portraiture.
+- Fashion Photography: Lookbooks, apparel campaigns, and high-fashion editorial imagery.
+- Concert Photography: Live stage performances, festival coverage, and low-light event capture.
+- Featured Films & Short Reels: Commercials, narrative shorts, music videos, and viral social reels.
+
+## Links & Details
+- Portfolio Showcase: /#portfolio
+- Service Inquiries: /#contact
+- Primary Email: contact@fahyan.com
