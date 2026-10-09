@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   keywords: site.keywords,
   authors: [{ name: site.ownerName }],
   creator: site.ownerName,
-  // B1.5 / B7.4: noindex while placeholder content remains; flip to true when real content is live
-  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+  // B1.5 / B7.4: Production indexing enabled
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: site.url },
   openGraph: {
     title: site.title,
@@ -60,8 +60,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: site.twitterHandle,
-    creator: site.twitterHandle,
     title: site.title,
     description: site.description,
     images: [site.ogImage],
@@ -88,7 +86,10 @@ function buildJsonLd() {
         "@type": "Person",
         name: site.ownerName,
         url: site.url,
-        sameAs: [],
+        sameAs: [
+          "https://www.instagram.com/the_fahyan",
+          "https://github.com/9984-fahyan",
+        ],
       },
       {
         "@type": "ProfessionalService",

@@ -26,10 +26,10 @@ export const content = {
   site: {
     ownerName: "Fahyan",
     ownerShort: "Fahyan",
-    url: "https://PLACEHOLDER-DOMAIN.example",
+    url: "https://fahyan.vercel.app",
     locale: "en_IN",
     themeColor: "#000000",
-    twitterHandle: "@PLACEHOLDER",
+    instagramHandle: "@the_fahyan",
     title: "Fahyan | Professional Editor & Photographer",
     description: "Editing, photography, and videography services for creative projects. Let's collaborate to bring your vision to life.",
     keywords: ["Editor", "Photographer", "Videographer", "Portfolio"],
@@ -44,7 +44,7 @@ export const content = {
   ],
 
   hero: {
-    photo: { src: "/Fahyan.jpeg", alt: "PLACEHOLDER profile photo" },
+    photo: { src: "/Fahyan.jpeg", alt: "Fahyan profile photo" },
     showAvailability: true,
     availabilityText: "available for work",
     firstName: "FAHYAN", 
@@ -241,7 +241,7 @@ export const content = {
         placeholder: "Tell me about your project or idea...",
       },
     },
-    recipientEmail: "placeholder@example.com",
+    recipientEmail: "fahyan399@gmail.com",
     // TODO(confirm):
   },
 
