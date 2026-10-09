@@ -59,9 +59,6 @@ function ReelViewer({ reel, onClose }: { reel: ReelItem; onClose: () => void }) 
           </svg>
         </button>
 
-        {/* Reel label */}
-        <p className="reel-viewer-label">{reel.label}</p>
-
         {/* Video frame */}
         <div className="reel-viewer-frame">
           {loading && !videoError && (

@@ -10,10 +10,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { content } from "@/content/content";
 
 import Reveal from "./Reveal";
+import ImageViewer from "./ImageViewer";
 
 export default function GalleryTabs() {
   const { galleryCategories } = content.projects;
   const [activeId, setActiveId] = useState(galleryCategories?.[0]?.id ?? "");
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
 
   if (!galleryCategories || galleryCategories.length === 0) {
     return null;
@@ -39,8 +41,14 @@ export default function GalleryTabs() {
     const nextCat = galleryCategories[nextIndex];
     if (nextCat) {
       setActiveId(nextCat.id);
+      setViewerIndex(null);
       document.getElementById(`tab-${nextCat.id}`)?.focus();
     }
+  };
+
+  const handleTabChange = (id: string) => {
+    setActiveId(id);
+    setViewerIndex(null);
   };
 
   return (
@@ -57,7 +65,7 @@ export default function GalleryTabs() {
               tabIndex={cat.id === (activeCategory?.id ?? activeId) ? 0 : -1}
               aria-controls="tabpanel-gallery"
               className={cat.id === (activeCategory?.id ?? activeId) ? "tab--active" : "tab"}
-              onClick={() => setActiveId(cat.id)}
+              onClick={() => handleTabChange(cat.id)}
               onKeyDown={(e) => handleKeyDown(e, idx)}
             >
               {cat.label}
@@ -83,9 +91,12 @@ export default function GalleryTabs() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               {activeCategory.images.map((img, i) => (
-                <motion.div
+                <motion.button
                   key={`${activeId}-${img.src}-${i}`}
+                  type="button"
                   className="gallery-tile"
+                  onClick={() => setViewerIndex(i)}
+                  aria-label={`View full size: ${img.alt || activeCategory.label}`}
                   initial={{ opacity: 0, y: 22, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
@@ -102,12 +113,40 @@ export default function GalleryTabs() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 280px"
                     style={{ objectFit: "cover" }}
                   />
-                </motion.div>
+
+                  {/* Expand icon hover overlay */}
+                  <div className="gallery-tile-overlay" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="15 3 21 3 21 9" />
+                      <polyline points="9 21 3 21 3 15" />
+                      <line x1="21" y1="3" x2="14" y2="10" />
+                      <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                  </div>
+                </motion.button>
               ))}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      {/* Full-screen lightbox viewer */}
+      {viewerIndex !== null && activeCategory && (
+        <ImageViewer
+          images={activeCategory.images}
+          currentIndex={viewerIndex}
+          categoryLabel={activeCategory.label}
+          onClose={() => setViewerIndex(null)}
+          onNavigate={(index) => setViewerIndex(index)}
+        />
+      )}
     </div>
   );
 }
